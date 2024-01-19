@@ -13,7 +13,7 @@ const handler = NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? '',
     }),
   ],
-  secret: 'tFcI10GOE4uYnL6LZ3zQXWfVCNOvtVam75/A8AVRvP4=',
+  secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async jwt({ token, account }) {
       if (account) {

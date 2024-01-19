@@ -1,14 +1,12 @@
-import NextAuth, { AuthOptions, DefaultSession } from 'next-auth';
+import NextAuth, { DefaultSession } from 'next-auth';
 import Google from 'next-auth/providers/google';
-import Okta from 'next-auth/providers/okta';
-
 declare module 'next-auth' {
   interface Session extends DefaultSession {
     accessToken: unknown;
   }
 }
 
-export const authOptions: AuthOptions = {
+const handler = NextAuth({
   providers: [
     Google({
       clientId: process.env.GOOGLE_CLIENT_ID ?? '',
@@ -27,8 +25,6 @@ export const authOptions: AuthOptions = {
       return session;
     },
   },
-};
-
-const handler = NextAuth(authOptions);
+});
 
 export { handler as GET, handler as POST };

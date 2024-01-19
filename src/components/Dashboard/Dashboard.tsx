@@ -11,7 +11,6 @@ export interface DashboardProps {
 }
 
 const Dashboard: React.FC<DashboardProps> = ({ name, email, imageSrc }) => {
-  console.log(imageSrc);
   return (
     <div className='p-10 flex items-center gap-4'>
       <Avatar>

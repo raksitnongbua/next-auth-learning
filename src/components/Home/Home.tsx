@@ -11,7 +11,7 @@ export interface HomeProps {
 const Home: React.FC<HomeProps> = ({}) => {
   const { data } = useSession();
   const isSignedIn = Boolean(data);
-  console.log(data);
+
   return (
     <div>
       {isSignedIn ? (

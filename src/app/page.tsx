@@ -1,12 +1,10 @@
-import Layout from '@/components/Layout';
-import { LoginForm } from '@/components/LoginForm';
+import Layout from '@/components/Layout/Layout';
+import { Home as Component } from '@/components/Home';
 
 export default function Home() {
   return (
-    <main className='flex justify-center items-center h-screen'>
-      <Layout>
-        <LoginForm />
-      </Layout>
-    </main>
+    <Layout>
+      <Component />
+    </Layout>
   );
 }

@@ -1,9 +1,9 @@
-import { Inter } from 'next/font/google';
+import { Coda } from 'next/font/google';
 import './globals.css';
-import Layout from '@/components/Layout';
-import { useState } from 'react';
+import Layout from '@/components/Layout/Layout';
 import { Metadata } from 'next';
-const inter = Inter({ subsets: ['latin'] });
+
+const coda = Coda({ subsets: ['latin'], weight: '400' });
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' className='dark'>
-      <body className={inter.className}>
+      <body className={coda.className}>
         <Layout>{children}</Layout>
       </body>
     </html>

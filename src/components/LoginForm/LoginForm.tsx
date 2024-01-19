@@ -9,14 +9,11 @@ export interface LoginFormProps {
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({}) => {
-  const { data } = useSession();
-  const { accessToken } = data ?? {};
   return (
     <Card className='min-w-28 flex flex flex-col items-center gap-6 p-6'>
       <CardTitle>
         <span className='text-xl'>Next Auth</span>
       </CardTitle>
-      <div>Access Token: {String(accessToken)}</div>
       <CardFooter>
         <Button
           className='bg-blue-500 hover:bg-blue-400 text-white flex gap-2 text-sm'

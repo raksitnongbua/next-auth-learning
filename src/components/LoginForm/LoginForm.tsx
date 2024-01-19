@@ -2,20 +2,26 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import GoogleIcon from './google-icon.svg';
-import { Card, CardContent, CardFooter, CardTitle } from '../ui/card';
-
+import { Card, CardFooter, CardTitle } from '../ui/card';
+import { signIn, useSession } from 'next-auth/react';
 export interface LoginFormProps {
   // types...
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({}) => {
+  const { data } = useSession();
+  const { accessToken } = data ?? {};
   return (
     <Card className='min-w-28 flex flex flex-col items-center gap-6 p-6'>
       <CardTitle>
         <span className='text-xl'>Next Auth</span>
       </CardTitle>
+      <div>Access Token: {String(accessToken)}</div>
       <CardFooter>
-        <Button className='bg-blue-500 hover:bg-blue-400 text-white flex gap-2 text-sm'>
+        <Button
+          className='bg-blue-500 hover:bg-blue-400 text-white flex gap-2 text-sm'
+          onClick={() => signIn('google')}
+        >
           <GoogleIcon className='fill-current' />
           <span>Sign In With Google</span>
         </Button>
